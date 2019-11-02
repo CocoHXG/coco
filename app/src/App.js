@@ -21,13 +21,14 @@ function App() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>User ID</label>
-        <input type="text" name="userID" value={inputs.userID} onChange={handleInputChange} required />
-        <label>Purchase</label>
+      <div class="information">
+        <label>User ID: </label>
+        <input type="text" name="cardNumber" value={inputs.cardNumber} onChange={handleInputChange} required />
+        <br />
+        <label>Price : </label>
         <input type="number" name="purchase" value={inputs.purchase} onChange={handleInputChange} required />
       </div>
-      <button type="submit" >Verify</button>
+      <button type="submit">Purchase</button>
     </form>
   );
 }
