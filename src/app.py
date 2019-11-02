@@ -37,11 +37,10 @@ class DecisionTree(object):
         y_pred = clf.predict(X_test)
 
         resp.status = falcon.HTTP_200
-        print(y_pred)
+        resp.body = '{"message": "Good activity!"}'
 
         if Y[0] != y_pred:
-            resp.status = falcon.HTTP_203
-        print("SUCCESS")
+            resp.body = '{"message": "Suspect fraudulent activity!"}'
 
 app = application = falcon.API()
 things = DecisionTree()
