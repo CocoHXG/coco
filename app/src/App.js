@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import './App.css';
+import {FraudDetection} from './fraudDetection'
 
 function App() {
   var userIDs = undefined;
