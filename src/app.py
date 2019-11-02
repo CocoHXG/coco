@@ -1,7 +1,7 @@
 import falcon
 import pandas as pd
 from sklearn import tree
-from customer_info_row import CUSTOMERS
+from customer_info import CUSTOMERS
 
 
 class DecisionTree(object):
