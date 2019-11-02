@@ -1,13 +1,6 @@
 import React, { useState } from 'react';
-import request from 'request';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
 import './App.css';
-import {FraudDetection} from './fraudDetection'
+
 
 function App() {
   var userIDs = undefined;
@@ -17,7 +10,7 @@ function App() {
     event.persist();
     setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
   }
-
+  
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();

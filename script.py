@@ -15,38 +15,30 @@ customers = requests.post(
     json = { 'continuationToken': '' }
 ).json()['result']['customers']
 
-#print(customers)
-
 Location = namedtuple("Location", "lat long")
 
-customer_info = {
-    customer["id"] : {
-        "income": customer["totalIncome"] if ("totalIncome" in customer) else 0,
-        "location": Location(
-            customer["addresses"]["principalResidence"]["latitude"], 
-            customer["addresses"]["principalResidence"]["longitude"]
-        ),
-    }
-    for customer in customers
-}
-
-
+customer_info = []
 for customer in customers:
     transactions = requests.get(
         start + 'customers/' + customer["id"] + '/transactions', 
         headers = { 'Authorization': apiKey},
         json = { 'continuationToken': '' }
     ).json()['result']
+    transaction_info = []
 
-    customer_info[customer["id"]]["transaction"] = []
     for transaction in transactions:
         if "locationLatitude" in transaction:
-            customer_info[customer["id"]]["transaction"].append({
-                    "amount": transaction["currencyAmount"],
-                    "location": Location(transaction["locationLatitude"], transaction["locationLongitude"])
-                })
+            transaction_info.append([
+                transaction["currencyAmount"], 
+                transaction["locationLatitude"], 
+                transaction["locationLongitude"]])
+    
+    customer_info.append([
+        customer["id"],
+        customer["addresses"]["principalResidence"]["latitude"],
+        customer["addresses"]["principalResidence"]["longitude"],
+        transaction_info
+        ])
 
-
-
-with open('data.txt', 'w') as outfile:
+with open('customer_info_row.json', 'w') as outfile:
     json.dump(customer_info, outfile)
