@@ -47,7 +47,7 @@ function App() {
 
         <label>Card Security Code : </label>
         <br />
-        <input type="text" name="csc" value={inputs.csc} onChange={handleInputChange} required />
+        <input type="password" name="csc" value={inputs.csc} onChange={handleInputChange} required />
         <br />
 
         <label>Price: </label>
