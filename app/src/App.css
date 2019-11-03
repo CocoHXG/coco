@@ -1,22 +1,36 @@
-.App {
+.information{
+  background-image: url("./images/background.jpg");
+  background-color: rgba(6, 12, 34, 0.50);
+  background-position: center top;
+  background-size: cover;
+  width: 100%;
   text-align: center;
+  font-size: 15pX;
 }
 
-.App-logo {
-  height: 40vmin;
+#shop-name{
+  background: rgba(6, 12, 34, 0.98);
+  color: #fff;
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 3px;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1{
+  color: #fff;
 }
 
-.App-link {
-  color: #09d3ac;
+#button{
+  background-color:rgba(6, 12, 34, 0.98);
+  color:#fff;
+  padding:10px;
+  border:none;
+
+}
+
+.container{
+  background-color: rgba(6, 12, 34, 0.50)
 }

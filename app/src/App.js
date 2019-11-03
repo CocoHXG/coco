@@ -15,21 +15,33 @@ function App() {
     if (event) {
       event.preventDefault();
       alert(`User Created!
-         Name: ${inputs.userID} ${inputs.purchase}`);
+         Name: ${inputs.cardNumber} ${inputs.price}`);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div class="information">
-        <label>User ID: </label>
+    <div onSubmit={handleSubmit} class="information">
+      <section class = "container">
+        <header id="shop-name"> EC HACKS </header>
+      
+        <h1> Payment </h1>
+        <label>Card Number : </label>
+        <br />
         <input type="text" name="cardNumber" value={inputs.cardNumber} onChange={handleInputChange} required />
         <br />
-        <label>Price : </label>
-        <input type="number" name="purchase" value={inputs.purchase} onChange={handleInputChange} required />
-      </div>
-      <button type="submit">Purchase</button>
-    </form>
+
+        <label>Card Security Code : </label>
+        <br />
+        <input type="text" name="csc" value={inputs.csc} onChange={handleInputChange} required />
+        <br />
+
+        <label>Price: </label>
+        <br />
+        <input type="number" name="price" value={inputs.price} onChange={handleInputChange} required />
+        <br />
+        <button type="submit" id="button">Purchase</button>
+      </section>
+    </div>
   );
 }
 
