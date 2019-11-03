@@ -17,33 +17,34 @@
   color: #fff;
   text-align: left;
   font-family: 'Raleway', sans-serif;
-  font-weight: 700;
+  font-weight: 100;
   font-size: 45px;
-  letter-spacing: 3px;
-  padding: 15px;
-  padding-bottom: 7px;
+  letter-spacing: 1px;
+  padding: 30px;
+  padding-bottom: 10px;
 }
 
 h1{
   color: #fff;
   font-size: 30px;
+  font-weight: 10;
+  letter-spacing: 1px;
   background-color: rgba(21, 71, 52, 0.80);
   margin-top: 0;
   text-align: left;
   padding: 5px;
-  padding-left: 15px;
+  padding-left: 33px;
   margin-bottom: 170px;
 }
 
 #button{
   background-color:rgba(6, 12, 34, 0.1);
   color:#fff;
-  padding:10px;
+  padding:7px;
   border-radius:25px white;
-  margin: 10px;
+  margin: 15px;
   padding-right: 20px;
   padding-left: 20px;
-  margin: 20px;
 }
 
 #button:hover{
