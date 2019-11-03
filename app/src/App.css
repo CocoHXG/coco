@@ -3,34 +3,56 @@
   background-color: rgba(6, 12, 34, 0.50);
   background-position: center top;
   background-size: cover;
+
   width: 100%;
   text-align: center;
-  font-size: 15pX;
+  line-height:1.7em;
+
+  font-size: 17pX;
+  font-family: 'Raleway', sans-serif;
 }
 
 #shop-name{
-  background: rgba(6, 12, 34, 0.98);
+  background: rgba(6, 12, 34, 0.90);
   color: #fff;
   text-align: left;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 45px;
   letter-spacing: 3px;
-  padding: 10px;
+  padding: 15px;
+  padding-bottom: 7px;
 }
 
 h1{
   color: #fff;
+  font-size: 30px;
+  background-color: rgba(21, 71, 52, 0.80);
+  margin-top: 0;
+  text-align: left;
+  padding: 5px;
+  padding-left: 15px;
+  margin-bottom: 170px;
 }
 
 #button{
-  background-color:rgba(6, 12, 34, 0.98);
+  background-color:rgba(6, 12, 34, 0.1);
   color:#fff;
   padding:10px;
-  border:none;
+  border-radius:25px white;
+  margin: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 20px;
+}
 
+#button:hover{
+  background-color:rgba(6, 12, 34, 0.5);
+  color:#fff;
 }
 
 .container{
-  background-color: rgba(6, 12, 34, 0.50)
+  background-color: rgba(6, 12, 34, 0.50);
+  color: #fff;
+  min-height: 800px;
 }

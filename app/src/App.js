@@ -20,7 +20,7 @@ function App() {
   }
 
   return (
-    <div onSubmit={handleSubmit} class="information">
+    <form onSubmit={handleSubmit} class="information">
       <section class = "container">
         <header id="shop-name"> EC HACKS </header>
       
@@ -41,7 +41,7 @@ function App() {
         <br />
         <button type="submit" id="button">Purchase</button>
       </section>
-    </div>
+    </form>
   );
 }
 
