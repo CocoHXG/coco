@@ -50,17 +50,17 @@ function App() {
           Wrong card number or password`);
       }
       else {
-        var isValid = await checkActivity(customer_id, inputs.price,  43.651070, -79.347015)
+        var isValid = await checkActivity(customer_id, inputs.price,  43.7783883153, -79.4274848631)
         if (!isValid) {
-          var text = prompt(`Your card has a suscpicious activity ${customer_id}'
+          var text = prompt(`Your card has a suscpicious activity'
             Please enter the code sent to you via text`)
-          if (text !== 213) {
+          if (text !== "213") {
             alert('Incorrect code! Your account has been locked.')
             setLocked(true)
             return 
           }
         }
-        alert(`Transaction complete! ${customer_id} ${isValid}`)
+        alert(`Transaction complete!`)
       }
     }
   }
