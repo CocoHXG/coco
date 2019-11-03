@@ -11,16 +11,16 @@ function App() {
     setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
   }
   
-  async function handleSubmit (event) {
+  const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      var customer_id = await checkCredentials(inputs.cardNumber, inputs.csc)
+      var customer_id = checkCredentials(inputs.cardNumber, inputs.csc)
       if (customer_id === false) {
         alert(`Validation failed!
           Wrong card number or password`);
       }
       else {
-        var isValid = await checkActivity(customer_id, inputs.price,  43.651070, -79.347015)
+        var isValid = checkActivity(customer_id, inputs.price,  43.651070, -79.347015)
         if (!isValid) {
           var text = prompt(`Your card has a suscpicious activity ${customer_id}'
             Please enter the code sent to you via text`)
@@ -29,6 +29,7 @@ function App() {
             setLocked(true)
           }
         }
+        alert('Transaction complete!')
       }
     }
   }
