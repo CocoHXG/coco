@@ -2,7 +2,7 @@ import falcon
 import pandas as pd
 from sklearn import tree
 from customer_info import CUSTOMERS
-
+from routes.cardResource import CardResource
 
 class DecisionTree(object):
     def on_get(self, req, resp):
@@ -43,7 +43,6 @@ class DecisionTree(object):
             resp.body = '{"message": "Suspect fraudulent activity!"}'
 
 app = application = falcon.API()
-things = DecisionTree()
 
-# things will handle all requests to the '/things' URL path
-app.add_route('/things', things)
+app.add_route('/activity', DecisionTree())
+app.add_route('/cardNumber', CardResource())
