@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 
-function checkCredentials(cardNumber, password) {
+export function checkCredentials(cardNumber, password) {
     // TODO query for existing 
-    axios.get('/cardNumber?card_num=' + cardNumber)
+    axios.get('http://localhost:8000/cardNumber?card_num=' + cardNumber,
+        { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then(function (response) {
             // handle success
             console.log(response);
             if (response["sec_num"] == password) {
-                return resp["customer_id"]
+                return response["customer_id"]
             } 
             return false;
         })
@@ -19,8 +20,9 @@ function checkCredentials(cardNumber, password) {
 }
  
 
-function checkActivity(customer_id, cost, lat, long) {
-    axios.get(`/activity?customer_id=${customer_id}&cost=${cost}&lat=${lat}&long=${long}`)
+export function checkActivity(customer_id, cost, lat, long) {
+    axios.get(`http://localhost:8000/activity?customer_id=${customer_id}&cost=${cost}&lat=${lat}&long=${long}`,
+        { headers: { 'Access-Control-Allow-Origin': '*' } })
         .then(function (response) {
             // handle success
             console.log(response);
