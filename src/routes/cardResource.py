@@ -17,3 +17,4 @@ class CardResource(object):
         except KeyError:
             raise falcon.HTTPNotFound()
         resp.status = falcon.HTTP_200
+        print(resp.body)

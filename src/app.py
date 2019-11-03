@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn import tree
 from customer_info import CUSTOMERS
 from routes.cardResource import CardResource
+from falcon_cors import CORS
 
 class DecisionTree(object):
     def on_get(self, req, resp):
@@ -42,7 +43,9 @@ class DecisionTree(object):
         if Y[0] != y_pred:
             resp.body = '{"message": "Suspect fraudulent activity!"}'
 
-app = application = falcon.API()
+cors = CORS(allow_all_origins=True, allow_all_headers=True, allow_all_methods=True)
+app = application = falcon.API(middleware=[cors.middleware])
 
 app.add_route('/activity', DecisionTree())
 app.add_route('/cardNumber', CardResource())
+
