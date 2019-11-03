@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import {checkActivity, checkCredentials} from './controller'
 
 function App() {
   var userIDs = undefined;
   const [inputs, setInputs] = useState({});
-
+  const [locked, setLocked] = useState(false);
   const handleInputChange = (event) => {
     event.persist();
     setInputs(inputs => ({...inputs, [event.target.name]: event.target.value}));
@@ -14,8 +14,23 @@ function App() {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      alert(`User Created!
-         Name: ${inputs.cardNumber} ${inputs.price}`);
+      var customer_id = checkCredentials(inputs.cardNumber, inputs.csc)
+      if (customer_id === false) {
+        alert(`Validation failed!
+          Wrong card number or password`);
+      }
+      else {
+        var isValid = checkActivity(customer_id, inputs.price,  43.651070, -79.347015)
+        if (!isValid) {
+          var text = prompt(`Your card has a suscpicious activity ${customer_id}'
+            Please enter the code sent to you via text`)
+          if (text !== 213) {
+            alert('Your account has been locked')
+            setLocked(true)
+          }
+        }
+        alert('Transaction complete!')
+      }
     }
   }
 
@@ -39,7 +54,7 @@ function App() {
         <br />
         <input type="number" name="price" value={inputs.price} onChange={handleInputChange} required />
         <br />
-        <button type="submit" id="button">Purchase</button>
+        {!locked ? <button type="submit" id="button">Purchase</button> : null}
       </section>
     </form>
   );
